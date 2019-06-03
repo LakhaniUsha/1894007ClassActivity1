@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_sub.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
 
                 String fname = edt_fname.getText().toString();
                 String lname = edt_lname.getText().toString();
@@ -48,7 +48,18 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                Snackbar snackbar = Snackbar.make(v, "Press exit button if you want to exit!", Snackbar.LENGTH_LONG);
+                Snackbar snackbar = Snackbar.make(v, "Registration Done", Snackbar.LENGTH_LONG).setAction("Clear", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        edt_fname.getText().clear();
+                        edt_lname.getText().clear();
+                        edt_psw.getText().clear();
+                        edt_email.getText().clear();
+
+                        Snackbar mSnackbar = Snackbar.make(v, "data successfully clear.", Snackbar.LENGTH_SHORT);
+                        mSnackbar.show();
+                    }
+                });
                 btn_exit.setVisibility(View.VISIBLE);
                 snackbar.show();
 
@@ -57,13 +68,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         btn_exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v1) {
-                edt_fname.getText().clear();
-                edt_lname.getText().clear();
-                edt_psw.getText().clear();
-                edt_email.getText().clear();
+
 
                 finish();
                 System.exit(0);
