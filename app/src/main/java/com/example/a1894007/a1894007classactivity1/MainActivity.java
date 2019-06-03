@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     EditText edt_fname,edt_lname, edt_email, edt_psw;
-    Button btn_sub;
+    Button btn_sub , btn_exit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
         btn_sub =findViewById(R.id.button_submit);
 
+        btn_exit =findViewById(R.id.btn_exit);
+
+        btn_exit.setVisibility(View.GONE);
+
 
        final Toast tst = Toast.makeText(getApplicationContext(),"Thank you", Toast.LENGTH_SHORT);
 
@@ -40,19 +44,36 @@ public class MainActivity extends AppCompatActivity {
                 String lname = edt_lname.getText().toString();
                 String email = edt_email.getText().toString();
                 String psw = edt_psw.getText().toString();
+                String msg = "Thank you";
+
+                Toast.makeText(getApplicationContext(),edt_fname.getText().toString()+msg.toString(), Toast.LENGTH_SHORT).show();
 
 
-                Toast.makeText(getApplicationContext(),edt_fname.getText().toString(), Toast.LENGTH_SHORT).show();
 
-                tst.setText("Thank you");
-                tst.show();
 
                 Snackbar snackbar = Snackbar.make(v, "Succefully submit", Snackbar.LENGTH_LONG);
-                snackbar.show();
+                btn_exit.setVisibility(View.VISIBLE);
 
+                snackbar.show();
 
             }
         });
+
+
+
+        btn_exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v1) {
+                edt_fname.getText().clear();
+                edt_lname.getText().clear();
+                edt_psw.getText().clear();
+                edt_email.getText().clear();
+                finish();
+                System.exit(0);
+
+            }
+        });
+
 
     }
 }
