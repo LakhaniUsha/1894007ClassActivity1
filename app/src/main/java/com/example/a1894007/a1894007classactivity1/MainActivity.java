@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                Snackbar snackbar = Snackbar.make(v, "Registration Done", Snackbar.LENGTH_LONG).setAction("Clear", new View.OnClickListener() {
+                Snackbar snackbar = Snackbar.make(v, "Registration Done!", Snackbar.LENGTH_LONG).setAction("Clear Data", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         edt_fname.getText().clear();
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         edt_psw.getText().clear();
                         edt_email.getText().clear();
 
-                        Snackbar mSnackbar = Snackbar.make(v, "data successfully clear.", Snackbar.LENGTH_SHORT);
+                        Snackbar mSnackbar = Snackbar.make(v, "Data successfully clear.", Snackbar.LENGTH_SHORT);
                         mSnackbar.show();
                     }
                 });
