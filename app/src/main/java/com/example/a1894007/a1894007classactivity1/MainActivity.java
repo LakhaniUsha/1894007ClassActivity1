@@ -23,18 +23,15 @@ public class MainActivity extends AppCompatActivity {
 
         edt_fname = findViewById(R.id.edittxt_fname);
         edt_lname = findViewById(R.id.edittxt_lname);
-
         edt_email = findViewById(R.id.editText_email);
         edt_psw = findViewById(R.id.editText_password);
-
         btn_sub =findViewById(R.id.button_submit);
-
         btn_exit =findViewById(R.id.btn_exit);
-
         btn_exit.setVisibility(View.GONE);
 
 
        final Toast tst = Toast.makeText(getApplicationContext(),"Thank you", Toast.LENGTH_SHORT);
+
 
         btn_sub.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,9 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                Snackbar snackbar = Snackbar.make(v, "Succefully submit", Snackbar.LENGTH_LONG);
+                Snackbar snackbar = Snackbar.make(v, "Press exit button if you want to exit!", Snackbar.LENGTH_LONG);
                 btn_exit.setVisibility(View.VISIBLE);
-
                 snackbar.show();
 
             }
@@ -68,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
                 edt_lname.getText().clear();
                 edt_psw.getText().clear();
                 edt_email.getText().clear();
+
                 finish();
                 System.exit(0);
-
             }
         });
 
